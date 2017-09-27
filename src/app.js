@@ -20,13 +20,13 @@ class App extends React.Component {
 
   updateContent(href) {
     window.history.pushState({}, '', href);
-    document.body.scrollTop = 0;
+    content.scrollTop = 0;
     const path = window.location.pathname.split('/').pop();
     this.setState({content: App.currentContent(path), path: path});
   }
 
   static currentContent(path) {
-    return contentMap[path] ? contentMap[path] : contentMap['/404'];
+    return contentMap[path] || contentMap['404'];
   }
 
   render() {

@@ -2,8 +2,8 @@
 
 ## Subcomponents
 
-- [HTML Tables](#html-table)
-- [Flex Tables](#flex-table)
+- [HTML Tables](#html-tables)
+- [Flex Tables](#flex-tables)
 
 # HTML Tables
 
