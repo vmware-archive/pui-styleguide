@@ -52,7 +52,6 @@ import * as Tooltip from 'pui-react-tooltip';
 import Contribute from '../../docs/Contribute.md';
 import GetStarted from '../../docs/GetStarted.md';
 import Faq from '../../docs/Faq.md';
-import Homepage from '../../docs/Homepage.md';
 import UpgradeGuide from '../../docs/UpgradeGuide.md';
 import Versions from '../../docs/Versions.md';
 import NotFound from '../../docs/404.md';
@@ -99,7 +98,7 @@ import VerticalAlignmentJson from '../../docs/components/VerticalAlignment.md';
 import WhitespaceJson from '../../docs/components/Whitespace.md';
 
 const routes = {
-  '/': {json: Homepage, file: 'Homepage.md', name: 'Homepage', category: 'Base', packages: []},
+  '/': {json: GetStarted, file: 'GetStarted.md', name: 'Get Started', category: 'Base', packages: []},
   '/getstarted': {json: GetStarted, file: 'GetStarted.md', name: 'Get Started', category: 'Base', packages: []},
   '/faq': {json: Faq, file: 'Faq.md', name: 'FAQ', category: 'Base', packages: [Panels]},
   '/upgradeguide': {json: UpgradeGuide, file: 'UpgradeGuide.md', name: 'Upgrade Guide', category: 'Base', packages: []},
