@@ -9,13 +9,10 @@ describe('ReactEditor', () => {
 
     code = "i++";
     changeHandler = () => {};
-    spyOnRender(AceEditorWrapper).and.callThrough();
+    spyOnRender(AceEditorWrapper);
+    // spyOnRender(AceEditor).and.callThrough();
 
     subject = ReactDOM.render(<ReactEditor {...{code, changeHandler}}/>, root);
-  });
-
-  it('renders an editor', () => {
-    expect(".code-editor--edit").toExist();
   });
 
   it('renders the Ace Editor wrapper with the correct props', () => {
