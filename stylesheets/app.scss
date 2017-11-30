@@ -109,3 +109,18 @@ table.markdown-table {
 #root #app #content table.props-table {
   table-layout: auto;
 }
+
+.example-form {
+  .label-row {
+    outline: 2px solid green;
+
+  }
+  .field-row {
+    outline: 2px solid cadetblue;
+
+  }
+  .help-row {
+    outline: 2px solid darkred;
+
+  }
+}
