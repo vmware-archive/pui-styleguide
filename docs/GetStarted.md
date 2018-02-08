@@ -1,134 +1,73 @@
 # Getting Started with Pivotal UI
 
-## Starter Project
+To get started using Pivotal UI with Create React App (CRA), follow these steps:
 
-We've created a starter project to help transitioning to Pivotal UI and React.
+1. Install the latest version of Node LTS. [See here for instructions.](https://docs.npmjs.com/getting-started/installing-node)
 
-Use [PUI Starter](https://github.com/pivotal-cf/pui-starter) to build a full React application using Pivotal UI.
+2. Create a new CRA project with this command:
+```
+npx create-react-app some-directory
+```
 
-Once you feel comfortable integrating Pivotal UI into your project, jump to the next step below.
+At this point, you'll be able to start up the default CRA app locally:
+```
+cd some-directory
+yarn start
+```
 
-## Using Pivotal UI on your project (with React)
+For more information on Create React App, see the [CRA readme](https://github.com/facebook/create-react-app).
 
-Using the React components is the recommended approach over CSS/HTML.
+3. Install the `pivotal-ui` node module:
 
-- Reusable, maintainable code that is more consistent.
-- Variables for color provide meaning and context ("marketing-header1" vs "teal-23")
-- Cross-browser and responsive issues are handled.
+```
+yarn add pivotal-ui
+```
 
-**However, you'll need to know a few more technologies.
-If you don't know what React, Babel or a transpiler is, review the links below.**
+4. Open `src/App.js` and replace the contents with:
 
-- [React Overview](http://facebook.github.io/react/)
-- [Babel](https://babeljs.io/)
+```
+import React, { Component } from 'react';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
 
-Ensure that the following is set up on your project:
+export default class App extends Component {
+  render() {
+    return <DefaultButton>Click Me</DefaultButton>;
+  }
+}
+```
 
- - **node**
+## Unit testing with Jasmine
 
-    ```
-    brew install node
-    ```
- - **node package manager**
+- Install jasmine?
 
-    npm will be installed as part of node
+- Install pui-react-tools
 
- - **Webpack or Browserify** - Our React modules follow the CommonJS module
-    pattern. Use [Webpack](http://webpack.github.io/) (recommended) or
-    [Browserify](http://browserify.org/) to compile your javascript for use
-    in the browser.
+- Install gulp@next (^4.0.0)
 
-    We use [Gulp](http://gulpjs.com/) and [Webpack Stream](https://github.com/shama/webpack-stream).
+- Install babel-core and babel-polyfill
 
- - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
-    You will need a transpiler to convert your JSX code into plain javascript
-    for use in the browser.
+- Create gulpfile.babel.js to install jasmine with a test webpack config
 
-    We recommend [Babel](https://babeljs.io/).
-    If you are using Webpack, you will also want [Babel Loader](https://github.com/babel/babel-loader)
+- Install gulp-jasmine
+  - verify that we need this
 
-    Getting Babel working can be complicated. To see a sample project with Babel integrated,
-    look at [PUI Starter](https://github.com/pivotal-cf/pui-starter).
+- Install puppeteer
 
- - **React**
- 
-    ```
-    npm install react react-dom --save-dev
-    ```
+## PUI Cursor & p-flux
 
+## Gulp
 
-Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to set up Pivotal UI for use in your project.
+## Sass
 
-### Install
+## HMR Reloading with Webpack
 
-1. Create a package.json file that will include the PUI modules you'll be using
-    `npm init`
+## React Hot Loader
 
-1. Install [PUI React Tools](http://github.com/pivotal-cf/pui-react-tools).
-   This set of tools includes an asset pipeline for including css and svg assets in your JavaScript.
-   Usage is somewhat complicated, [PUI Starter](https://github.com/pivotal-cf/pui-starter) is a sample project with everything set up.
+## Integration Testing with Selenium
 
-1. Install Pivotal UI:
+## Routing with Grapnel
 
-    ```
-    npm install --save pivotal-ui
-    ```
+## Deployment to PCF
 
-1. Write some React!
+## Linting
 
-    Javascript:
-    
-    ```
-    import React from 'react';
-    import {DefaultButton} from 'pivotal-ui/react/buttons';
-
-    class MyTestPage extends React.Component {
-      constructor(props, context) {
-        super(props, context);
-        this.state = {showMessage: false};
-      }
-
-      showMessage() {
-        this.setState({showMessage: true});
-      }
-
-      render() {
-        return (
-          <div className="container">
-            <DefaultButton onClick={this.showMessage.bind(this)}>Show Message</DefaultButton>
-            { this.state.showMessage ? <h1>Hello world!</h1> : null }
-          </div>
-        );
-      }
-    }
-
-    ReactDOM.render(<MyTestPage />, document.getElementById('root'));
-    ```
-    
-    HTML:
-
-    ```
-     <!-- ... -->
-     <body>
-       <div id="root"></div>
-
-       <!-- Script tag should be below all DOM elements -->
-       <script src="<path-to-your-project's-compiled-javascript-file>"></script>
-     </body>
-     <!-- ... -->
-    ```
-    
-1. Require any css-only components in your javascript
-
-    ```
-    import 'pivotal-ui/css/alignment';
-    import 'pivotal-ui/css/whitespace';
-    ```
-
-    These will be included in the built css artifact, in addition to any css internally required by your PUI React Components.
-
-1. Use the asset pipeline from pui-react-tools.
-
-In development mode, this will inject PUI css directly into your page.
-In production mode, it will create a file called `components.css` as well as any fonts or images required by the css.
-If you are using pui-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
