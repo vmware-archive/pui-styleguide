@@ -74,7 +74,9 @@ export default class JsCodeArea extends React.Component {
 
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
+      console.log({transpiledCode})
       livePreview = eval(transpiledCode);
+      console.log({livePreview})
       ReactDOMServer.renderToStaticMarkup(livePreview);
     } catch (e) {
       console.log(e);
@@ -82,6 +84,18 @@ export default class JsCodeArea extends React.Component {
     }
 
     let content;
+
+    // "use strict";
+    //
+    // React.createElement(
+    //   "div",
+    //   null,
+    //   React.createElement(
+    //     React.Fragment,
+    //     null,
+    //     "test"
+    //   )
+    // );
 
     if (!noToolbar) {
       content = (
