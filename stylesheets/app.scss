@@ -113,14 +113,23 @@ h2.h2 {
 .example-form {
   .label-row {
     outline: 1px solid green;
-
   }
   .field-row {
     outline: 1px solid cadetblue;
-
   }
   .help-row {
     outline: 1px solid darkred;
+  }
+}
 
+#content .policy-link {
+  &:not(:empty):before {
+    content: "•";
+    margin: 0 8px;
+  }
+
+  &:first-child:before {
+    content: "";
+    margin-right: 0;
   }
 }
