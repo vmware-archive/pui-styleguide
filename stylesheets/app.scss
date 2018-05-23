@@ -108,3 +108,15 @@ table.markdown-table {
 #root #app #content table.props-table {
   table-layout: auto;
 }
+
+#content .policy-link {
+  &:not(:empty):before {
+    content: "•";
+    margin: 0 8px;
+  }
+
+  &:first-child:before {
+    content: "";
+    margin-right: 0;
+  }
+}
