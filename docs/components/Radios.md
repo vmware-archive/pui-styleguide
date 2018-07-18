@@ -2,7 +2,7 @@
 
 ## Examples
 
-For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
+For the example, you also need to install [Grids](/grids) and require `Col` from it.
 
 ```jsx
 ::title=Basic example
