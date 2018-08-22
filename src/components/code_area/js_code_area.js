@@ -82,6 +82,7 @@ export default class JsCodeArea extends React.Component {
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
       livePreview = eval(transpiledCode);
+      ReactDOMServer.renderToStaticMarkup(livePreview);
     } catch (e) {
       livePreview = <pre>{e.toString()}</pre>;
     }
