@@ -29,6 +29,11 @@ export default {
     return ['components', 'modifiers', 'concepts'].indexOf(category) === -1
       ? 'info'
       : category;
+  },
 
+  getMetadata: mdAst => {
+    const yamlNode = (mdAst.children || []).find(node => node.type === 'yaml');
+    if (!yamlNode) return {};
+    return yamlNode.data.parsedValue;
   }
 };

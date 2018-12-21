@@ -7,10 +7,13 @@ const getRoutes = ({requireFunc, processor}) => requireFunc.keys().reduce((memo,
   const pageTitle = MarkdownFileHelper.getPageTitle(file);
   const parentTitle = MarkdownFileHelper.getParentTitle(file);
   const category = MarkdownFileHelper.getCategory(file);
+  const metadata = MarkdownFileHelper.getMetadata(json);
 
   return {
     ...memo,
-    [route]: {file, route, pageContent: MarkdownFileHelper.process({processor, json}), tabHeaderIndex, pageTitle, parentTitle, category}
+    [route]: {
+      file, route, pageContent: MarkdownFileHelper.process({processor, json}), tabHeaderIndex, pageTitle, parentTitle, category, metadata
+    }
   };
 }, {});
 
